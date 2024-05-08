@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-from django.db import models
-
 class Estudiante(models.Model):
     rut = models.CharField(max_length=9, primary_key=True)
     nombre = models.CharField(max_length=50)
