@@ -11,6 +11,7 @@ class Estudiante(models.Model):
     creacion_registro = models.DateField()
     modificacion_registro = models.DateField()
     creado_por = models.CharField(max_length=50)
+    cursos = models.ManyToManyField('Curso', related_name='estudiantes')
 
 class Direccion(models.Model):
     estudiante = models.OneToOneField(Estudiante, on_delete=models.CASCADE, primary_key=True)
@@ -35,3 +36,4 @@ class Curso(models.Model):
     nombre = models.CharField(max_length=50)
     version = models.IntegerField(null=True, blank=True)
     profesor = models.OneToOneField(Profesor, on_delete=models.SET_NULL, null=True, blank=True)
+    
